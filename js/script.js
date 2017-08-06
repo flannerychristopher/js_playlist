@@ -22,7 +22,8 @@ Song.prototype.toHTML = function() {
     songHTML += ' class="playing"';
   }
   songHTML += '>' + this.title + ' - ' + this.artist;
-  songHTML += '<span class="duration">' + this.duration + '</span></li>';
+  songHTML += '<span class="duration"> ' + this.duration + '</span></li>';
+  return songHTML;
 };
 
 
@@ -53,7 +54,7 @@ Playlist.prototype.next = function() {
 Playlist.prototype.render = function(list) {
   list.innerHTML = '';
   for(i = 0; i < this.songs.length; i++) {
-    list.innerHTML += this.songs[i].toHTML;
+    list.innerHTML += this.songs[i].toHTML();
   }
 };
 
@@ -61,3 +62,19 @@ playList.add(song1);
 playList.add(song2);
 playList.add(song3);
 playList.render(listElement);
+
+const playButton = document.getElementById('play');
+const stopButton = document.getElementById('stop');
+const nextButton = document.getElementById('next');
+playButton.onclick = function() {
+  playList.play();
+  playList.render(listElement);
+}
+stopButton.onclick = function() {
+  playList.stop();
+  playList.render(listElement);
+}
+nextButton.onclick = function() {
+  playList.next();
+  playList.render(listElement);
+}

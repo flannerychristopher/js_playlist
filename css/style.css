@@ -1,0 +1,16 @@
+.container {
+  width: 30em;
+  margin: 0 auto;
+  border: 3px double #888;
+  border-radius: 2em;
+  padding: 2em;
+}
+
+.playing {
+  background: #fa6f6f;
+}
+button {
+  width: 5em;
+  border: 3px double #888;
+  border-radius: 2em;
+}

@@ -1,9 +1,3 @@
-const listElement = document.getElementById('playList');
-const playList = new Playlist();
-const song1 = new Song("Hey Ya", "Outkast", "3:01");
-const song2 = new Song("Me and My Girlfriend", "2pac", "2:55");
-const song3 = new Song("Hotel California", "Eagles", "4:35");
-
 function Song(title, artist, duration) {
   this.title = title;
   this.artist = artist;
@@ -25,7 +19,6 @@ Song.prototype.toHTML = function() {
   songHTML += '<span class="duration"> ' + this.duration + '</span></li>';
   return songHTML;
 };
-
 
 function Playlist() {
   this.songs = [];
@@ -58,11 +51,6 @@ Playlist.prototype.render = function(list) {
   }
 };
 
-playList.add(song1);
-playList.add(song2);
-playList.add(song3);
-playList.render(listElement);
-
 const playButton = document.getElementById('play');
 const stopButton = document.getElementById('stop');
 const nextButton = document.getElementById('next');
@@ -78,3 +66,13 @@ nextButton.onclick = function() {
   playList.next();
   playList.render(listElement);
 }
+
+const listElement = document.getElementById('playList');
+const playList = new Playlist();
+const song1 = new Song("Hey Ya", "Outkast", "3:01");
+const song2 = new Song("Me and My Girlfriend", "2pac", "2:55");
+const song3 = new Song("Hotel California", "Eagles", "4:35");
+playList.add(song1);
+playList.add(song2);
+playList.add(song3);
+playList.render(listElement);
